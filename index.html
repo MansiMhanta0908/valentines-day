@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Question</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            max-width: 90%;
+            z-index: 10;
+        }
+        h1 { color: #d81b60; font-size: 1.5rem; }
+        p { color: #555; line-height: 1.6; }
+        .heart { color: #e91e63; font-size: 3rem; margin-bottom: 1rem; }
+        
+        .btn-container {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        #yesBtn { background-color: #e91e63; color: white; font-size: 1.1rem; }
+        #noBtn { background-color: #cfd8dc; color: #546e7a; position: relative; }
+
+        .consent-box {
+            font-size: 0.8rem;
+            margin-top: 15px;
+            display: block;
+            color: #880e4f;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="mainCard">
+        <div class="heart">❤️</div>
+        <h1>Will you be my Valentine for life?</h1>
+        <p>By clicking "Yes", you promise to stay by my side in sad and happy times, in struggle and successful life, and through all the hard ups and downs.</p>
+        
+        <div class="btn-container">
+            <button id="yesBtn" onclick="celebrate()">Yes, I Promise!</button>
+            <button id="noBtn" onmouseover="moveButton()" onclick="moveButton()">No</button>
+        </div>
+        
+        <span class="consent-box">"A love that grows through every season..."</span>
+    </div>
+
+    <script>
+        // This makes the "No" button run away when he tries to click it!
+        function moveButton() {
+            const btn = document.getElementById('noBtn');
+            const x = Math.random() * (window.innerWidth - btn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - btn.offsetHeight);
+            btn.style.position = 'absolute';
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+        }
+
+        function celebrate() {
+            document.getElementById('mainCard').innerHTML = `
+                <div class="heart">💖</div>
+                <h1>It's a Forever Deal!</h1>
+                <p>I knew you'd say yes. Happy Propose Day!</p>
+                <div style="font-size: 2rem;">👩‍❤️‍👨</div>
+            `;
+            // Optional: You could add a confetti effect here!
+        }
+    </script>
+</body>
+</html>
